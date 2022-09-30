@@ -44,7 +44,8 @@ function gerarConta() {
 function gerarTransf() {
   const origem = contas[numeroAleatorio(contas.length - 1)];
   let destino = origem;
-  while (destino == origem) destino = contas[numeroAleatorio(contas.length - 1)];
+  while (destino == origem)
+    destino = contas[numeroAleatorio(contas.length - 1)];
 
   const valor = numeroAleatorio(50000, 1000, false);
 
@@ -64,6 +65,9 @@ function gerarTransf() {
     destino.transfRecebidas += 1;
 
     destino.historico.push(transf);
+
+    origem.saldo -= valor;
+    destino.saldo += valor;
   } else {
     transf.descricao =
       valor > origem.saldo
@@ -73,10 +77,4 @@ function gerarTransf() {
   }
 
   origem.historico.push(transf);
-
-  // LIMITE DE TRANSF ACUMULATIVO OU DIA???
-  // TRANS SO EFETUADA QUANDO ACEITA?
-  // LIMITE DE TRANSF MAIS IMPORTANTE QUE SALDO OU CONTRARIO
-  // ALGUMAS CONTAS NAO TRANSACIONAM
-  // SE TRANSFERIR TEM QUE DIMINUIR DO SALDO E DA TRANSFERENCIA
 }
