@@ -67,10 +67,8 @@ function gerarTransf() {
   if (horas >= 20 || horas <= 6) limiteTransf = 1000;
 
   if (meio == "DOC") {
-    console.log(`DOC: ${dataTransf}`);
     const adicionar = horas <= 21 ? 1 : 2;
     dataTransf.setDate(dataTransf.getDate() + adicionar);
-    console.log(`DOC APOS MUDANCA: ${dataTransf}`);
   } else if (meio == "TED") {
     const adicionar = horas >= 6 && horas <= 17 ? 0 : 1;
     dataTransf.setDate(dataTransf.getDate() + adicionar);
